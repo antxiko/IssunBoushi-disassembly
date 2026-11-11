@@ -2591,24 +2591,6 @@ C 0x8C24 LDIRVM
 L 0x8C94 presentacion_centro   Desde el paso 9: el CASIO que baja (0xE189) y el que sube (0xE18B), cada uno con una fila en blanco detras para borrar su rastro
 C 0x8C94 el paso...
 C 0x8C97 ...9?
-D 0x4000 0x4010 cabecera           La cabecera del cartucho: "AB", INIT 0x4010, sin STATEMENT, DEVICE ni TEXT; la demostracion la lee como mandos (0xE037 = 0x4000)
-D 0x4038 0x4042 tierra_planos      Los decorados de tierra de las cinco escenas: un puntero cada una (0x417C, 0x4132, 0x4066, 0x40D8 y 0x4042)
-D 0x4042 0x41D6 tierra_listas      Cada decorado de tierra: rectangulos (fila, columna, ancho, alto y casilla) hasta 0xFF y dibujos (fila, columna y direccion) hasta 0xFF
-D 0x41D6 0x4460 tierra_dibujos     Los dibujos de tierra (ancho, alto y casillas); el de 0x431A (8 x 1, la casilla 0x97) no lo usa ninguna lista
-D 0x4460 0x4468 rio_planos         Los mapas del rio de las escenas 0-3: un puntero cada una (0x470F, 0x4468, 0x4539 y 0x4606)
-D 0x4468 0x4860 rio_listas         Las listas de cada mapa del rio: fila, columna y direccion del dibujo (84, 52, 51 y 66 dibujos), hasta 0xFF
-D 0x4860 0x4A1E rio_dibujos        Los dibujos del rio (ancho, alto y casillas; 0, transparente)
-D 0x4A1E 0x4A32 orilla_dibujo      La orilla (2 x 9 casillas), en la fila 13 al llegar
-D 0x4A32 0x4AC3 tierra_dibujos2    Mas dibujos de tierra
-D 0x4AC3 0x4B80 jefe_dibujos_1     Los cinco dibujos del jefe de la escena 1 (0x4AC3, 0x4AE1, 0x4AFF, 0x4B24 y 0x4B57)
-D 0x4B80 0x4D00 letras_dibujos     Las letras (casillas 0-0x2F): las cifras 0-9 y las letras desde la 0x11 (A)
-D 0x4D00 0x5000 casillas_d0        Las casillas 0xD0-0xFF de la partida (0x4D00) y sus colores (0x4E80)
-D 0x5000 0x5300 titulo_casillas    Las casillas del titulo (desde la 0x30: el nombre y CASIO; el final las pone en el segundo tercio para どんなもんだい)
-D 0x5300 0x5800 partida_casillas   Las casillas 0x30-0xCF de la partida; las 0x90-0x9F y 0xA0-0xA7 guardan tambien los cuatro pasos del agua (0x5600, 0x5680 y 0x56C0)
-D 0x5800 0x5B00 titulo_colores     Los colores de las casillas del titulo; sus ultimos 0x100 bytes (0x5A00) son a la vez los dibujos de los sprites de la pausa (por eso esos colores se pintan de blanco, 0x88CD)
-D 0x5B00 0x6000 partida_colores    Los colores de las casillas 0x30-0xCF (con los del agua en 0x5E00-0x5EFF)
-D 0x6000 0x8000 decorado_casillas  Las casillas del decorado: las del primer tercio (0x6000) y sus colores (0x6800), las del segundo (0x7000) y sus colores (0x7800)
-L 0x8000 arranque_nop          16 "nop": INIT (0x4035) salta a 0x8000 y los recorre hasta el arranque
 L 0xB3EC canal_byte                El byte siguiente de la pieza (0xE2C3): menos de 0xF0, una nota (duracion y volumen, el tono) y 3; si no, una orden
 C 0xB3F3 el byte
 C 0xB3F4 0xF0 o mas: una orden
@@ -2777,3 +2759,21 @@ C 0x846A la misma X para los cuatro
 C 0x8464 la del tercer sprite (0xE340)
 L 0xB562 nota_pon              Una nota: la mitad alta del byte es la duracion (la tabla de 0xB5B3, o el byte siguiente con 0xE), la baja el volumen (15: la mitad)
 L 0xB365 sonido_canal_b        Los canales B y C: con la musica o el efecto de B y C, un paso de cada uno (los registros 2-3 y 9, 4-5 y 10); al acabar, sonido_bc_acaba (0xB677)
+D 0x4000 0x4010 cabecera           La cabecera del cartucho: "AB", INIT 0x4010, sin STATEMENT, DEVICE ni TEXT; la demostracion la lee como mandos (0xE037 = 0x4000)
+D 0x4038 0x4042 tierra_planos      Los decorados de tierra de las cinco escenas: un puntero cada una (0x417C, 0x4132, 0x4066, 0x40D8 y 0x4042)
+D 0x4042 0x41D6 tierra_listas      Cada decorado de tierra: rectangulos (fila, columna, ancho, alto y casilla) hasta 0xFF y dibujos (fila, columna y direccion) hasta 0xFF
+D 0x41D6 0x4460 tierra_dibujos     Los dibujos de tierra (ancho, alto y casillas); el de 0x431A (8 x 1, la casilla 0x97) no lo usa ninguna lista
+D 0x4460 0x4468 rio_planos         Los mapas del rio de las escenas 0-3: un puntero cada una (0x470F, 0x4468, 0x4539 y 0x4606)
+D 0x4468 0x4860 rio_listas         Las listas de cada mapa del rio: fila, columna y direccion del dibujo (84, 52, 51 y 66 dibujos), hasta 0xFF
+D 0x4860 0x4A1E rio_dibujos        Los dibujos del rio (ancho, alto y casillas; 0, transparente)
+D 0x4A1E 0x4A32 orilla_dibujo      La orilla (2 x 9 casillas), en la fila 13 al llegar
+D 0x4A32 0x4AC3 tierra_dibujos2    Mas dibujos de tierra
+D 0x4AC3 0x4B80 jefe_dibujos_1     Los cinco dibujos del jefe de la segunda escena (0xE003 = 1) (0x4AC3, 0x4AE1, 0x4AFF, 0x4B24 y 0x4B57)
+D 0x4B80 0x4D00 letras_dibujos     Las letras (casillas 0-0x2F): las cifras 0-9 y las letras desde la 0x11 (A)
+D 0x4D00 0x5000 casillas_d0        Las casillas 0xD0-0xFF de la partida (0x4D00) y sus colores (0x4E80)
+D 0x5000 0x5300 titulo_casillas    Las casillas del titulo (desde la 0x30: el nombre y CASIO; el final las pone en el segundo tercio para どんなもんだい)
+D 0x5300 0x5800 partida_casillas   Las casillas 0x30-0xCF de la partida; las 0x90-0x9F y 0xA0-0xA7 guardan tambien los cuatro pasos del agua (0x5600, 0x5680 y 0x56C0)
+D 0x5800 0x5B00 titulo_colores     Los colores de las casillas del titulo; sus ultimos 0x100 bytes (0x5A00) son a la vez los dibujos de los sprites de la pausa (por eso esos colores se pintan de blanco, 0x88CD)
+D 0x5B00 0x6000 partida_colores    Los colores de las casillas 0x30-0xCF (con los del agua en 0x5E00-0x5EFF)
+D 0x6000 0x8000 decorado_casillas  Las casillas del decorado: las del primer tercio (0x6000) y sus colores (0x6800), las del segundo (0x7000) y sus colores (0x7800)
+L 0x8000 arranque_nop          16 "nop": INIT (0x4035) salta a 0x8000 y los recorre hasta el arranque

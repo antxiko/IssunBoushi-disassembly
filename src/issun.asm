@@ -269,8 +269,8 @@ DATA_tierra_dibujos2:
 	defb 0fdh	; 4ac2
 
 ; ----------------------------------------------------------------------
-; DATOS jefe_dibujos_1: Los cinco dibujos del jefe de la escena 1 (0x4AC3,
-;   0x4AE1, 0x4AFF, 0x4B24 y 0x4B57)
+; DATOS jefe_dibujos_1: Los cinco dibujos del jefe de la segunda escena
+;   (0xE003 = 1) (0x4AC3, 0x4AE1, 0x4AFF, 0x4B24 y 0x4B57)
 ;   0x4ac3..0x4b80  (189 bytes)
 DATA_jefe_dibujos_1:
 	defb 004h,007h,010h,010h,010h,010h,060h,061h,062h,010h,064h,065h,066h,010h,068h,069h	; 4ac3  ......`ab.def.hi
