@@ -149,7 +149,7 @@ class LasImagenes(unittest.TestCase):
 
     def test_los_dos_idiomas_tienen_las_mismas_imagenes(self):
         pares = [("THE-GAME.md", "LA-PARTIDA.md"), ("THE-SCENES.md", "LAS-ESCENAS.md"),
-                 ("THE-SPRITES.md", "LOS-SPRITES.md"), ("THE-MUSIC.md", "LA-MUSICA.md"),
+                 ("THE-SPRITES.md", "LOS-SPRITES.md"), ("THE-TEXTS.md", "LOS-TEXTOS.md"), ("THE-MUSIC.md", "LA-MUSICA.md"),
                  ("CURIOSITIES.md", "CURIOSIDADES.md"), ("SECRETS-AND-BUGS.md", "SECRETOS-Y-FALLOS.md"), ("UNDER-THE-HOOD.md", "POR-DENTRO.md")]
         for en, es in pares:
             ie = re.findall(r"imagenes/([^)]+)\)", lee_texto(os.path.join(DOCS, en)))
