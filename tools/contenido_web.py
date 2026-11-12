@@ -86,7 +86,10 @@ PAGINAS = [
     [("CURIOSITIES.html", "CURIOSIDADES.html", "Curiosities", "Curiosidades",
       "TAB and CAPS on the title, a demo that plays the cartridge header, shared bytes, leftovers",
       "TAB y CAPS en el t&iacute;tulo, una demostraci&oacute;n que juega la cabecera del cartucho, bytes "
-      "compartidos, sobrantes")],
+      "compartidos, sobrantes"),
+     ("SECRETS-AND-BUGS.html", "SECRETOS-Y-FALLOS.html", "Secrets and bugs", "Secretos y fallos",
+      "what was searched for: TAB and CAPS, the demo that plays the cartridge, the high score set to zero past 9,999,990, the cursor keys and joystick mixed, and the life at 10,000 checked",
+      "lo que se ha buscado: TAB y CAPS, la demostraci&oacute;n que juega el cartucho, el r&eacute;cord a cero pasados los 9.999.990, los cursores y el mando que se mezclan, y la vida de los 10.000 comprobada")],
     [("UNDER-THE-HOOD.html", "POR-DENTRO.html", "Under the hood", "Por dentro",
       "rebuilding the ROM, the cartridge, the BIOS it uses, the loop, the river map, the sprites, the RAM and the tools",
       "rehacer la ROM, el cartucho, la BIOS que usa, el bucle, el mapa del r&iacute;o, los sprites, la RAM y las "
