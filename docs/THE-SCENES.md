@@ -9,6 +9,25 @@ The GIFs on this page, except the one of scene 1 (in [The game](THE-GAME.html)),
 every 20 frames, the river cut short (after 900 frames, the map set at its end) and the oni's bar lowered to 4 after
 900 frames of fighting. The same pilot plays.
 
+## The maps
+
+The five scenes, one per row: the whole river on the left and the land where the oni waits on the right; the fifth
+has no river. They are **drawn by running the ROM** (`tools/mapas.py`), over the tiles of a recorded frame of each
+scene:
+
+- **the river**: `rio_decorado` (0x90F1) builds its map in RAM, 14 rows of 192 tiles (columns 0-0x3F are copied into
+  0x40-0x7F: the river repeats), and `rio_pinta` shows 32 columns from the advance (0xE190, 0 to 0x7F) **with every
+  row reversed**; here are the 159 columns that ever show, in screen order, with the start of the river on the right
+  and the water below;
+- **the land**: `decorado_dibujos`, `tierra_decorado` and `decorado_pinta` (0x920F-0x9218), as on reaching the shore.
+
+Check against the recordings: on the river, the 32-column slice the advance points to comes out **identical** to the
+recorded name table on 3,553 of 3,905 frames (median 0). On land, about 150 frames per scene come out identical and the
+median is about 22 differing tiles out of 704: what is drawn on top in those rows; those differences have not been
+looked at one by one.
+
+![The five scenes: the river and the land](imagenes/mapas.png)
+
 ## The river
 
 Each river is a map of 192 x 14 tiles (0xE600, the list of drawings of each scene at 0x4460: 84, 52, 51 and 66) that

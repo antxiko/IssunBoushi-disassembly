@@ -9,6 +9,24 @@ Los GIF de esta p&aacute;gina, salvo el de la escena 1 (en [La partida](LA-PARTI
 protagonista llenada a mano cada 20 cuadros, el r&iacute;o acortado (a los 900 cuadros, el mapa puesto en su final) y
 la barra del oni bajada a 4 a los 900 cuadros de pelea. Juega el mismo piloto.
 
+## Los mapas
+
+Las cinco escenas, cada una en una fila: a la izquierda el río entero, a la derecha la tierra donde espera el oni; la
+quinta no tiene río. Están **pintadas ejecutando la ROM** (`tools/mapas.py`), sobre las casillas de un cuadro grabado
+de cada escena:
+
+- **el río**: `rio_decorado` (0x90F1) monta su mapa en la RAM, 14 filas de 192 casillas (las columnas 0-0x3F se
+  copian en las 0x40-0x7F: el río se repite), y `rio_pinta` enseña 32 columnas desde el avance (0xE190, de 0 a 0x7F)
+  **con cada fila al revés**; aquí van las 159 columnas que se llegan a ver, en el orden de la pantalla, con el
+  principio del río a la derecha y el agua debajo;
+- **la tierra**: `decorado_dibujos`, `tierra_decorado` y `decorado_pinta` (0x920F-0x9218), como al llegar a la orilla.
+
+Cotejo con las grabaciones: en el río, el tramo de 32 columnas que dice el avance sale **igual** a la tabla de nombres
+grabada en 3.553 de 3.905 cuadros (mediana 0). En tierra, unos 150 cuadros por escena salen iguales y la mediana es de
+unas 22 casillas distintas de 704: lo que se pinta encima en esas filas; esas diferencias no se han mirado una a una.
+
+![Las cinco escenas: el río y la tierra](../imagenes/mapas.png)
+
 ## El r&iacute;o
 
 Cada r&iacute;o es un mapa de 192 x 14 casillas (0xE600, la lista de dibujos de cada escena en 0x4460: 84, 52, 51 y
